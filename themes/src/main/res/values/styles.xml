@@ -174,4 +174,10 @@
     <style name="Buton.Borderless" parent="Widget.AppCompat.Button.Borderless"></style>
     <style name="Buton.Borderless.Colored" parent="Widget.AppCompat.Button.Borderless.Colored"></style>
 
+
+
+    <style name="Theme_Dialog_Translucent" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>
