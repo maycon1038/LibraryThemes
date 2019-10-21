@@ -17,9 +17,9 @@ public class BaseActivity extends AppCompatActivity {
         setTheme(ThemeUtil.getThemeId(getThemeFromPreferences(this)));
       //  AppCompatDelegate.setDefaultNightMode(getModeNightFromPreferences(this));
         if(getModeNightFromPreferences(this)){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
     }
