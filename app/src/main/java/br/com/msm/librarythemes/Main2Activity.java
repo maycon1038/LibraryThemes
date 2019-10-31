@@ -18,7 +18,7 @@ public class Main2Activity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		ThemeUtil.setMyTheme(this, ThemeUtil.THEME_GREEN_DARK);
+	 ThemeUtil.setMyTheme(this, ThemeUtil.THEME_GREEN_DARK);
 		thema = getModeNightFromPreferences(Main2Activity.this);
 		ThemeUtil.setMode(this, thema);
 		setContentView(R.layout.activity_main2);
