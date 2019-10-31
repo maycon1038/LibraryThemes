@@ -148,6 +148,15 @@
     </style>
 
 
+    <!--Cores do App comando-->
+    <style name="AppTheme.GREEN_DARK" parent="AppTheme.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColorGreenDark</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColorGreenDark</item>
+        <item name="colorAccent">@color/secondaryColorGreenDark</item>
+    </style>
+
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -176,18 +185,5 @@
 
 
 
-    <style name="Theme_Dialog_Translucent" parent="android:Theme.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-
-
-    <style name="CardView" parent="Base.CardView">
-    </style>
-    <style name="CardView.Dark">
-        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
-    </style>
-    <style name="CardView.Light">
-        <item name="cardBackgroundColor">@color/cardview_light_background</item>
-    </style>
 
 </resources>

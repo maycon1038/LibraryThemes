@@ -102,7 +102,7 @@
 
 
 
-    <!--  GREEN Theme -->
+    <!--  GREEN Theme  app comando-->
     <color name="primaryColorGreen">#4CAF50</color>
     <color name="primaryLightColorGreen">#C8E6C9</color>
     <color name="primaryDarkColorGreen">#388E3C</color>
@@ -111,6 +111,21 @@
     <color name="secondaryDarkColorGreen">#0197ab</color>
     <color name="primaryTextColorGreen">#ffffff</color>
     <color name="secondaryTextColorGreen">#000000</color>
+
+
+
+    <!--  GREEN Theme  app comando-->
+    <color name="primaryColorGreenDark">#034f2f</color>
+    <color name="primaryLightColorGreenDark">#C8E6C9</color>
+    <color name="primaryDarkColorGreenDark">#388E3C</color>
+    <color name="secondaryColorGreenDark">#00BCD4</color>
+    <color name="secondaryLightColorGreenDark">#6cd1de</color>
+    <color name="secondaryDarkColorGreenDark">#0197ab</color>
+    <!--color do texto-->
+    <color name="primaryTextColorGreenDark">#ffffff</color>
+    <color name="secondaryTextColorGreenDark">#000000</color>
+
+
 
     <!-- LIGHTGREEN Theme -->
     <color name="primaryColorLightGreen">#8BC34A</color>

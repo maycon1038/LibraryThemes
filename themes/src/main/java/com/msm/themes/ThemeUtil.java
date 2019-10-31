@@ -36,6 +36,7 @@ public class ThemeUtil {
     public static final int THEME_BROWN = 16;
     public static final int THEME_GRAY = 17;
     public static final int THEME_BLUEGRAY = 18;
+    public static final int THEME_GREEN_DARK = 19;
 
      public static final int MODE_NIGHT_NO = 1;
     public static final int MODE_NIGHT_YES = 2;
@@ -146,6 +147,9 @@ public class ThemeUtil {
             case THEME_BLUEGRAY  :
                 themeId = R.style.AppTheme_BLUEGRAY;
                 break;
+            case THEME_GREEN_DARK  :
+                themeId = R.style.AppTheme_GREEN_DARK;
+                break;
             default:
                 break;
         }
@@ -173,6 +177,7 @@ public class ThemeUtil {
         themeArrayList.add(new Theme(16,R.color.primaryColorBrown, R.color.primaryDarkColorBrown, R.color.secondaryColorBrown));
         themeArrayList.add(new Theme(17,R.color.primaryColorGray, R.color.primaryDarkColorGray, R.color.secondaryColorGray));
         themeArrayList.add(new Theme(18,R.color.primaryColorBlueGray, R.color.primaryDarkColorBlueGray, R.color.secondaryColorBlueGray));
+        themeArrayList.add(new Theme(19,R.color.primaryColorGreenDark, R.color.primaryDarkColorGreenDark, R.color.secondaryColorGreenDark));
         return themeArrayList;
     }
 
