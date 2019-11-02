@@ -35,8 +35,7 @@ public class Tradutor {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-
-        String url = "http://mymemory.translated.net/api/get?q=" + query + "&langpair=en|" + idioma;
+        String url = "http://mymemory.translated.net/get?q=" + query + "&langpair=en|" + idioma;
 
         Ion.with(ctx).load(url).asJsonObject().setCallback(new FutureCallback<JsonObject>() {
             @Override
