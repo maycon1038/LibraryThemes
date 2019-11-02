@@ -62,9 +62,6 @@ public class CheckVersion {
                                     }
                                 }
                             });
-
-
-                            check.newVersionApp(newVersionPlayStore,dateUpdate,news,null);
                         } catch (Exception el) {
                             check.newVersionApp(null,null,null,el.getMessage());
                         }
