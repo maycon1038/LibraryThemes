@@ -47,11 +47,11 @@ public class Tradutor {
                         callback.textTranslation(result.get("responseData").getAsJsonObject().get("translatedText").getAsString());
                     } catch (Exception ex) {
                         ex.printStackTrace();
-                        callback.textTranslation("erro");
+                        callback.textTranslation(null);
                     }
                 } else {
                     Tag(ctx, e.toString());
-                    callback.textTranslation("erro");
+                    callback.textTranslation(null);
 
                 }
 
