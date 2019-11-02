@@ -2,6 +2,7 @@ package com.msm.themes;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.util.Log;
 
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
