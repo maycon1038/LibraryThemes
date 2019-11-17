@@ -38,7 +38,7 @@ public class CheckVersion {
 
         if (isOnline()) {
             Ion.with(ctx).load(ctx.getString(R.string.linkPlayStore, infor.packageName))
-                    .setTimeout(30000) // 30 segundos
+                    .setTimeout(15000) // 15 segundos
                     .asString(Charset.forName("utf-8")).setCallback(new FutureCallback<String>() {
                 @Override
                 public void onCompleted(Exception e, String result) {
