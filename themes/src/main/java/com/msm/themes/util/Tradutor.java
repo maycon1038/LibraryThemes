@@ -12,8 +12,6 @@ import java.net.URLEncoder;
 import java.util.Locale;
 
 
-import static com.msm.themes.util.Util.Tag;
-
 
 public class Tradutor {
 
@@ -37,11 +35,14 @@ public class Tradutor {
         }
         String url = "https://api.mymemory.translated.net/get?q=" + query + "&langpair=en|" + idioma;
 
-        Ion.with(ctx).load(url).asJsonObject().setCallback(new FutureCallback<JsonObject>() {
+        Ion.with(ctx)
+                .load(url)
+                .setTimeout(10000) // 10 segundos
+                .asJsonObject().setCallback(new FutureCallback<JsonObject>() {
             @Override
             public void onCompleted(Exception e, JsonObject result) {
                 if (e == null) {
-                    Tag(ctx, result.toString());
+
                     try {
                         callback.textTranslation(result.get("responseData").getAsJsonObject().get("translatedText").getAsString());
                     } catch (Exception ex) {
@@ -49,7 +50,7 @@ public class Tradutor {
                         callback.textTranslation(null);
                     }
                 } else {
-                    Tag(ctx, e.toString());
+
                     callback.textTranslation(null);
 
                 }
