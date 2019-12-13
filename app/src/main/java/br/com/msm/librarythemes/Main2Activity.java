@@ -6,9 +6,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.msm.themes.CheckVersion;
 import com.msm.themes.ThemeUtil;
-import com.msm.themes.interfaces.CheckVersionApp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,7 +16,7 @@ import android.view.View;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 
-public class Main2Activity extends AppCompatActivity implements CheckVersionApp {
+public class Main2Activity extends AppCompatActivity   {
 	private boolean thema;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +51,6 @@ public class Main2Activity extends AppCompatActivity implements CheckVersionApp 
 
 
 
-		PackageInfo pInfo = null;
-		try {
-			pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-
-			CheckVersion cv = new CheckVersion(this, pInfo);
-			cv.getVersionPlayStore(this);
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
-		}
 
 	}
 
@@ -80,14 +69,5 @@ public class Main2Activity extends AppCompatActivity implements CheckVersionApp 
 
 	}
 
-	@Override
-	public void newVersionApp(String versionPlayStory, String dateUpdate, String news, String erro) {
 
-
-		Log.d("newVersionApp",versionPlayStory +
-				"\n" + dateUpdate +
-				"\n" + news +
-				"\n" + erro
-		);
-	}
 }
