@@ -127,6 +127,9 @@
     <!--color do texto-->
     <color name="primaryTextColorGreenDark">#ffffff</color>
     <color name="secondaryTextColorGreenDark">#000000</color>
+    <!--color do icon-->
+    <color name="primaryIconColorGreenDark">#388E3C</color>
+    <color name="secondaryIconColorGreenDark">#000000</color>
 
 
 

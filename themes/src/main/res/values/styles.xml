@@ -149,7 +149,7 @@
 
 
     <!--Cores do App comando-->
-    <style name="AppTheme.GREEN_DARK" parent="AppTheme.NoActionBar">
+    <style name="AppTheme.GREEN_DARK" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColorGreenDark</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorGreenDark</item>
