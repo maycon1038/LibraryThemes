@@ -7,9 +7,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.msm.themes.BaseActivity;
 import com.msm.themes.ThemeUtil;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+
+import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 
 public class Main3Activity extends BaseActivity {
 
@@ -35,7 +38,11 @@ public class Main3Activity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-
+        if(getModeNightFromPreferences(this)){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
 }

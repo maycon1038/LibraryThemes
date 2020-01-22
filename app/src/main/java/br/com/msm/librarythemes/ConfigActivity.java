@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,6 +17,7 @@ import com.msm.themes.BaseActivity;
 import com.msm.themes.CheckVersion;
 import com.msm.themes.ThemeUtil;
 import com.msm.themes.interfaces.CheckVersionApp;
+
 
 
 public class ConfigActivity extends BaseActivity implements CheckVersionApp {
