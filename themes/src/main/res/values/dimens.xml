@@ -9,4 +9,18 @@
     <dimen name="size_30dp">30dp</dimen>
     <dimen name="size_56dp">56dp</dimen>
     <dimen name="progress_bar_size">0dp</dimen>
+
+    <!--Shimmer -->
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="placeholder_image">50dp</dimen>
+    <dimen name="placeholder_text_height">8dp</dimen>
+    <dimen name="activity_padding_horizontal">16dp</dimen>
+    <dimen name="size_5dp">5dp</dimen>
+    <dimen name="size_8dp">8dp</dimen>
+    <dimen name="size_10dp">10dp</dimen>
+    <dimen name="size_15dp">15dp</dimen>
+    <dimen name="size_12dp">12dp</dimen>
+    <dimen name="size_11dp">11dp</dimen>
+    <dimen name="description">15dp</dimen>
+    <dimen name="size_13dp">13dp</dimen>
 </resources>

@@ -7,6 +7,13 @@
     <color name="cardview_dark_background">#FF424242</color>
     <color name="cardview_light_background">#FFFFFFFF</color>
 
+    <!--Shimmer -->
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="item_name">#0c0c0c</color>
+    <color name="description">#1a1a1a</color>
+    <color name="chef">#777</color>
+    <color name="timestamp">#777</color>
+
 
     <!-- RED Theme -->
     <color name="primaryColorRed">#313131</color>
