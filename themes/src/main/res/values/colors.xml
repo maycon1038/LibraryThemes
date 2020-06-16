@@ -125,7 +125,7 @@
 
 
     <!--  GREEN Theme  app comando-->
-    <color name="primaryColorGreenDark">#034f2f</color>
+    <color name="primaryColorGreenDark">#0B3A16</color>
     <color name="primaryLightColorGreenDark">#388E3C</color>
     <color name="primaryDarkColorGreenDark">#FF424242</color>
     <color name="secondaryColorGreenDark">#00BCD4</color>
