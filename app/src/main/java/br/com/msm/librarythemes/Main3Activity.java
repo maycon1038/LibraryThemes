@@ -49,9 +49,6 @@ public class Main3Activity extends BaseActivity implements  ActionMode.Callback 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-
-
         return super.onOptionsItemSelected(item);
     }
 

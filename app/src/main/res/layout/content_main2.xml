@@ -20,12 +20,15 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:src="@drawable/ic_launcher_foreground"
-			android:tint="?attr/colorControlNormal"/>
+			app:tint="@color/primaryDarkColorRed"/>
 
-		<Button
+		<com.google.android.material.button.MaterialButton
 			android:layout_width="match_parent"
 			android:text="Modificar thema"
 			android:id="@+id/btn_themaModo"
+			style="@style/Buton"
+			android:layout_margin="@dimen/size_5dp"
+			app:cornerRadius="25dp"
 			android:layout_height="wrap_content"
 			tools:ignore="MissingConstraints" />
 
@@ -35,7 +38,7 @@
 			android:elevation="@dimen/size_16dp"
 			android:layout_height="wrap_content">
 
-			<TextView
+			<com.google.android.material.textview.MaterialTextView
 				android:layout_width="wrap_content"
 				style="@style/Text.Body2"
 				android:layout_height="wrap_content"
