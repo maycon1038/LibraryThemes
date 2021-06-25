@@ -12,8 +12,7 @@ import com.msm.themes.util.Tradutor;
 import org.jsoup.Jsoup;
 
 import java.nio.charset.Charset;
-
-import static com.msm.themes.util.Util.isOnline;
+import static com.msm.themes.util.Util.isOnlineV1;
 
 public class CheckVersion {
 
@@ -36,7 +35,7 @@ public class CheckVersion {
     public void getVersionPlayStore(final CheckVersionApp check) {
 
 
-        if (isOnline()) {
+        if (isOnlineV1(ctx)) {
             Ion.with(ctx).load(ctx.getString(R.string.linkPlayStore, infor.packageName))
                     .setTimeout(10000) // 15 segundos  .asString(Charset.forName("utf-8"))
                     .asString(Charset.forName("utf-8"))

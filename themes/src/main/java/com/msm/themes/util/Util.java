@@ -168,6 +168,36 @@ public class Util {
         }
 
     }
+	public static boolean isOnlineWifi(Context context) {
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+		if (activeNetwork != null) {
+			// connected to the internet
+			// connected to wifi
+			return activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
+		}
+		return false;
+	}
+
+	public static boolean isOnlineV1(Context context) {
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+		if (activeNetwork != null) {
+			// connected to the internet
+			if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+				// connected to wifi
+				Tag(context, "Você está conectado no wifi");
+				return true;
+			} else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+				// connected to mobile data
+				Tag(context, "Você está conectado no celular");
+				return true;
+			}
+		}
+		Tag(context, "Você não está conectado no celular");
+		return false;
+
+	}
     public static boolean verificaInternetStatus(Context ctx) {
         ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();

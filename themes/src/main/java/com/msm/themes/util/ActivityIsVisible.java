@@ -4,16 +4,16 @@ package com.msm.themes.util;
  * Created by MSM on 06/11/2017.
  */
 
-public class AppComandoIsVisible {
+public class ActivityIsVisible {
 
-    public static boolean isActivityVisible(String nameActivity) {
-        if(nameActivity.equals(activity) && activityVisible){
-            return true;
-        }else {
-            return false;
-        }
+	public static boolean isActivityVisible(String nameActivity) {
+		if (nameActivity.equals(activity) && activityVisible) {
+			return true;
+		} else {
+			return false;
+		}
 
-    }
+	}
 
     public static void activityResumed(String nameActivity) {
         activityVisible = true;
