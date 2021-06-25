@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.msm.themes.BaseActivity;
+import com.msm.themes.SegureBaseActivity;
 import com.msm.themes.ThemeUtil;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 
-public class Main3Activity extends BaseActivity implements  ActionMode.Callback {
+public class Main3Activity extends SegureBaseActivity implements  ActionMode.Callback {
 
     ActionMode mActionMode;
 

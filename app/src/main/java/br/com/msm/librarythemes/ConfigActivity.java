@@ -15,12 +15,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.msm.themes.BaseActivity;
 import com.msm.themes.CheckVersion;
+import com.msm.themes.SegureBaseActivity;
 import com.msm.themes.ThemeUtil;
 import com.msm.themes.interfaces.CheckVersionApp;
 
 
 
-public class ConfigActivity extends BaseActivity implements CheckVersionApp {
+public class ConfigActivity extends SegureBaseActivity implements CheckVersionApp {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
