@@ -32,17 +32,7 @@ public class Main3Activity extends SegureBaseActivity implements  ActionMode.Cal
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-              //  mActionMode = startActionMode(Main3Activity.this);
-
-                startActivity(new Intent(Main3Activity.this, ConfigActivity.class));
-              //  Toast.makeText(Main3Activity.this, "fs", Toast.LENGTH_SHORT).show();
-            }
-        });
+		startActivity(new Intent(Main3Activity.this, ConfigActivity.class));
     }
 
 
