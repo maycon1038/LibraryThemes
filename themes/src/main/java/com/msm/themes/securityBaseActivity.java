@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-public class SegureBaseActivity extends AppCompatActivity {
+public class securityBaseActivity extends AppCompatActivity {
 
 
     @Override

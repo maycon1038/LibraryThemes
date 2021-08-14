@@ -3,9 +3,7 @@ package br.com.msm.librarythemes;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.msm.themes.BaseActivity;
-import com.msm.themes.SegureBaseActivity;
+import com.msm.themes.securityBaseActivity;
 import com.msm.themes.ThemeUtil;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -15,12 +13,10 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 
-public class Main3Activity extends SegureBaseActivity implements  ActionMode.Callback {
+public class Main3Activity extends securityBaseActivity implements  ActionMode.Callback {
 
     ActionMode mActionMode;
 
