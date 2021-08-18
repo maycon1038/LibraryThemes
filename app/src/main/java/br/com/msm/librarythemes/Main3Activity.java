@@ -3,7 +3,7 @@ package br.com.msm.librarythemes;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.msm.themes.securityBaseActivity;
+import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -16,7 +16,7 @@ import android.view.MenuItem;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 
-public class Main3Activity extends securityBaseActivity implements  ActionMode.Callback {
+public class Main3Activity extends SecurityBaseActivity implements  ActionMode.Callback {
 
     ActionMode mActionMode;
 

@@ -7,17 +7,21 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.dialog.MaterialDialogs;
 import com.msm.themes.CheckVersion;
-import com.msm.themes.securityBaseActivity;
+import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
 import com.msm.themes.interfaces.CheckVersionApp;
+import com.msm.themes.interfaces.iTranslation;
+import com.msm.themes.util.Tradutor;
+import com.msm.themes.util.themePreferencia;
 
 
-
-public class ConfigActivity extends securityBaseActivity implements CheckVersionApp {
+public class ConfigActivity extends SecurityBaseActivity implements CheckVersionApp {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,6 +47,8 @@ public class ConfigActivity extends securityBaseActivity implements CheckVersion
 			}
 		});
 
+		themePreferencia.setProvider(this,"teste");
+
 
 
 		PackageInfo pInfo = null;
@@ -54,6 +60,14 @@ public class ConfigActivity extends securityBaseActivity implements CheckVersion
 		} catch (PackageManager.NameNotFoundException e) {
 			e.printStackTrace();
 		}
+
+
+	  new Tradutor(this,"The translated text, in the target language you configured, is passed to the success listener." ).setCallback(new iTranslation() {
+			@Override
+			public void textTranslation(String text) {
+				Toast.makeText(ConfigActivity.this, text, Toast.LENGTH_SHORT).show();
+			}
+		});
 
 	}
 
