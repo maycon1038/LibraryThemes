@@ -1,6 +1,7 @@
 package com.msm.themes.util;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -13,8 +14,6 @@ import com.google.mlkit.nl.translate.Translator;
 import com.google.mlkit.nl.translate.TranslatorOptions;
 import com.msm.themes.interfaces.iTranslation;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 
 public class Tradutor {
@@ -42,9 +41,7 @@ public class Tradutor {
 
 	public void setCallback(final iTranslation callback) {
 
-		try {
-			final String query = URLEncoder.encode(texto, "UTF-8");
-			portuguesTranslator.translate(query)
+			portuguesTranslator.translate(texto)
 					.addOnSuccessListener(new OnSuccessListener<String>() {
 						@Override
 						public void onSuccess(String s) {
@@ -57,12 +54,11 @@ public class Tradutor {
 								@Override
 								public void onFailure(@NonNull Exception e) {
 									portuguesTranslator.close();
-									callback.textTranslation(query);
+									Log.e("Tradutor " , e.getMessage());
+									callback.textTranslation(texto);
 								}
 							});
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+
 
 
 
