@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 android {
 	compileSdk 32
 	defaultConfig {
-		minSdk 22
+		minSdk 23
 		targetSdk 32
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 	}

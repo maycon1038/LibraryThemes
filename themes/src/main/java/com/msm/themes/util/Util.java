@@ -1,6 +1,9 @@
 package com.msm.themes.util;
 
 
+import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -11,6 +14,8 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -137,104 +142,60 @@ public class Util {
         return dateToFormat;
     }
 
-    public static boolean isOnline() {
-
-        AsyncTask<Void, Void, Boolean> task = new AsyncTask<Void, Void, Boolean>() {
-
-            @Override
-            protected Boolean doInBackground(Void... voids) {
-                try {
-                    int timeoutMs = 1500;
-                    Socket sock = new Socket();
-                    SocketAddress sockaddr = new InetSocketAddress("8.8.8.8", 53); //www.google.com
-                    //  SocketAddress sockaddr = new InetSocketAddress("45.40.132.20", 53); //pmam.online
-
-                    sock.connect(sockaddr, timeoutMs);
-                    sock.close();
-
-                    return true;
-                } catch (IOException e) { return false; }
-            }
-        };
-        AsyncTask<Void, Void, Boolean> ret = task.execute();
-        try {
-            return ret.get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            return  false;
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return  false;
-        }
-
-    }
-	public static boolean isOnlineWifi(Context context) {
-		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-		if (activeNetwork != null) {
-			// connected to the internet
-			// connected to wifi
-			return activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
-		}
-		return false;
-	}
-
 	public static boolean isOnlineV1(Context context) {
-		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-		if (activeNetwork != null) {
-			// connected to the internet
-			if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
-				// connected to wifi
-				Tag(context, "Você está conectado no wifi");
-				return true;
-			} else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
-				// connected to mobile data
-				Tag(context, "Você está conectado no celular");
-				return true;
-			}
-		}
-		Tag(context, "Você não está conectado no celular");
-		return false;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network internet = cm.getActiveNetwork();
+        NetworkCapabilities nc = cm.getNetworkCapabilities(internet);
+        boolean isNetwork = false;
+        boolean isInternet = false;
+        if(internet != null){
+            isNetwork = nc.hasCapability(NET_CAPABILITY_INTERNET);
+        }
+        if(internet != null) {
+            isInternet = nc.hasCapability(NET_CAPABILITY_VALIDATED);
+        }
+        return  isInternet && isNetwork;
 
 	}
     public static boolean verificaInternetStatus(Context ctx) {
         ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
-
-        if (info == null || !info.isConnected()) {
-            return false; //sem conexão
+        Network internet = cm.getActiveNetwork();
+        NetworkCapabilities nc = cm.getNetworkCapabilities(internet);
+        boolean isNetwork = false;
+        boolean isInternet = false;
+        if(internet != null){
+            isNetwork = nc.hasCapability(NET_CAPABILITY_INTERNET);
         }
-        if (info.getType() == ConnectivityManager.TYPE_WIFI) {
-            return true;
+        if(internet != null) {
+            isInternet = nc.hasCapability(NET_CAPABILITY_VALIDATED);
         }
-        if (info.getType() == ConnectivityManager.TYPE_MOBILE) {
-            int networkType = info.getSubtype();
-            switch (networkType) {
-                case TelephonyManager.NETWORK_TYPE_GPRS:
-                case TelephonyManager.NETWORK_TYPE_EDGE:
-                case TelephonyManager.NETWORK_TYPE_CDMA:
-                case TelephonyManager.NETWORK_TYPE_1xRTT:
-                case TelephonyManager.NETWORK_TYPE_IDEN: //api<8 : troque por 11
-                    return true; // 2G
-                case TelephonyManager.NETWORK_TYPE_UMTS:
-                case TelephonyManager.NETWORK_TYPE_EVDO_0:
-                case TelephonyManager.NETWORK_TYPE_EVDO_A:
-                case TelephonyManager.NETWORK_TYPE_HSDPA:
-                case TelephonyManager.NETWORK_TYPE_HSUPA:
-                case TelephonyManager.NETWORK_TYPE_HSPA:
-                case TelephonyManager.NETWORK_TYPE_EVDO_B: //api<9 : troque por 14
-                case TelephonyManager.NETWORK_TYPE_EHRPD:  //api<11 : troque por 12
-                case TelephonyManager.NETWORK_TYPE_HSPAP:  //api<13 : troque por 15
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_LTE:    //api<11 : troque por 13
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return false;
+        return  isInternet && isNetwork;
     }
+
+    public static boolean isOnlineWifi(Context ctx) {
+        ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        Network internet = cm.getActiveNetwork();
+        NetworkCapabilities nc = cm.getNetworkCapabilities(internet);
+        boolean isNetwork = false;
+        boolean isInternet = false;
+        boolean isOnlineWifi = false;
+        if(internet != null){
+            isNetwork = nc.hasCapability(NET_CAPABILITY_INTERNET);
+        }
+        if(internet != null) {
+            isInternet = nc.hasCapability(NET_CAPABILITY_VALIDATED);
+        }
+
+        if ( isInternet && isNetwork && info != null) {
+            // connected to the internet
+            // connected to wifi
+            isOnlineWifi =  info.getType() == ConnectivityManager.TYPE_WIFI;
+        }
+        return  isOnlineWifi;
+    }
+
 
     public static void showAviso(Context ctx, Drawable icon, String title, String msm) {
         new MaterialDialog.Builder(ctx)
