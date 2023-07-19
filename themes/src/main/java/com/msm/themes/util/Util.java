@@ -169,12 +169,11 @@ public class Util {
             isInternet = nc.hasCapability(NET_CAPABILITY_VALIDATED);
         }
         if(!(isInternet && isNetwork)) {
-
             LayoutInflater inflater = (LayoutInflater)  context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.layout_internet_alert, null);
             Toast toast = Toast.makeText(context, "", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP,0,0);
-            toast.setView(view);
+             toast.setView(view);
             toast.show();
 
         }

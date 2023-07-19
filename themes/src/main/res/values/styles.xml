@@ -210,5 +210,5 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <string name="alerta_offline">Você não está conectado à internet, por isso os dados abaixo podem estar desatualizados!</string>
-
+    <string name="alerta_internet">Não foi possível conectar-se à internet. Mude para outra rede e tente novamente.</string>
 </resources>

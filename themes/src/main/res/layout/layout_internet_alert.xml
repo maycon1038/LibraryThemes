@@ -4,7 +4,7 @@
     android:id="@+id/id_internet_alert"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="@string/alerta_offline"
+    android:text="@string/alerta_internet"
     android:background="@color/alert"
     android:paddingHorizontal="@dimen/size_10dp"
     android:paddingVertical="@dimen/size_5dp"
