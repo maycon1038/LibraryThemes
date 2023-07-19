@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
+import static com.msm.themes.util.Util.checkInternet;
 
 public class Main3Activity extends SecurityBaseActivity implements  ActionMode.Callback {
 
@@ -51,7 +52,6 @@ public class Main3Activity extends SecurityBaseActivity implements  ActionMode.C
     @Override
     protected void onResume() {
         super.onResume();
-
         if(getModeNightFromPreferences(this)){
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }else{

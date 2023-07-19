@@ -1,5 +1,7 @@
 package br.com.msm.librarythemes;
 
+import static com.msm.themes.util.Util.checkInternet;
+
 import android.annotation.SuppressLint;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -82,5 +84,11 @@ public class ConfigActivity extends SecurityBaseActivity implements CheckVersion
 				"\n" + news +
 				"\n" + erro
 		);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		checkInternet(this);
 	}
 }

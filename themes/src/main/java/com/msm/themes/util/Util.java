@@ -22,13 +22,18 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.msm.themes.R;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -157,6 +162,30 @@ public class Util {
         return  isInternet && isNetwork;
 
 	}
+
+    public static void checkInternet(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network internet = cm.getActiveNetwork();
+        NetworkCapabilities nc = cm.getNetworkCapabilities(internet);
+        boolean isNetwork = false;
+        boolean isInternet = false;
+        if(internet != null){
+            isNetwork = nc.hasCapability(NET_CAPABILITY_INTERNET);
+        }
+        if(internet != null) {
+            isInternet = nc.hasCapability(NET_CAPABILITY_VALIDATED);
+        }
+        if(!(isInternet && isNetwork)) {
+
+            LayoutInflater inflater = (LayoutInflater)  context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.internet_alert, null);
+            Toast toast = Toast.makeText(context, "", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.TOP,0,0);
+            toast.setView(view);
+            toast.show();
+
+        }
+    }
     public static boolean verificaInternetStatus(Context ctx) {
         ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
