@@ -17,9 +17,7 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
@@ -35,15 +33,10 @@ import androidx.core.content.ContextCompat;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.msm.themes.R;
 
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketAddress;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 
 public class Util {
@@ -178,7 +171,7 @@ public class Util {
         if(!(isInternet && isNetwork)) {
 
             LayoutInflater inflater = (LayoutInflater)  context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.internet_alert, null);
+            View view = inflater.inflate(R.layout.layout_internet_alert, null);
             Toast toast = Toast.makeText(context, "", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP,0,0);
             toast.setView(view);
