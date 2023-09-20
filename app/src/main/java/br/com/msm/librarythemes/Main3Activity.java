@@ -3,7 +3,7 @@ package br.com.msm.librarythemes;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.msm.themes.securityBaseActivity;
+import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -15,8 +15,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
+import static com.msm.themes.util.Util.checkInternet;
 
-public class Main3Activity extends securityBaseActivity implements  ActionMode.Callback {
+public class Main3Activity extends SecurityBaseActivity implements  ActionMode.Callback {
 
     ActionMode mActionMode;
 
@@ -51,7 +52,6 @@ public class Main3Activity extends securityBaseActivity implements  ActionMode.C
     @Override
     protected void onResume() {
         super.onResume();
-
         if(getModeNightFromPreferences(this)){
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }else{

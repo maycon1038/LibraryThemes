@@ -1,15 +1,18 @@
 package com.msm.themes.util;
 
 import android.content.Context;
+import android.util.Log;
 
-import com.google.gson.JsonObject;
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
-import com.msm.themes.interfaces.Translation;
+import androidx.annotation.NonNull;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Locale;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.translate.TranslateLanguage;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.Translator;
+import com.google.mlkit.nl.translate.TranslatorOptions;
+import com.msm.themes.interfaces.iTranslation;
 
 
 
@@ -17,47 +20,48 @@ public class Tradutor {
 
     Context ctx;
     String texto;
+	Translator  portuguesTranslator;
 
     public Tradutor(Context ctx, String texto) {
         this.ctx = ctx;
         this.texto = texto;
-    }
 
-    public void setCallback(final Translation callback) {
-        Locale ling = Locale.getDefault();
-        String idioma = ling.getLanguage();
-        String query = null;
-        try {
-            query = URLEncoder.encode(texto, "UTF-8");
+            TranslatorOptions options = new TranslatorOptions.Builder()
+                .setSourceLanguage(TranslateLanguage.ENGLISH)
+                .setTargetLanguage(TranslateLanguage.PORTUGUESE)
+                .build();
+        portuguesTranslator =  Translation.getClient(options);
 
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        String url = "https://api.mymemory.translated.net/get?q=" + query + "&langpair=en|" + idioma;
-
-        Ion.with(ctx)
-                .load(url)
-                .setTimeout(10000) // 10 segundos
-                .asJsonObject().setCallback(new FutureCallback<JsonObject>() {
-            @Override
-            public void onCompleted(Exception e, JsonObject result) {
-                if (e == null) {
-
-                    try {
-                        callback.textTranslation(result.get("responseData").getAsJsonObject().get("translatedText").getAsString());
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                        callback.textTranslation(null);
-                    }
-                } else {
-
-                    callback.textTranslation(null);
-
-                }
-
-            }
-        });
+        DownloadConditions conditions = new DownloadConditions.Builder()
+                .requireWifi()
+                .build();
+        portuguesTranslator.downloadModelIfNeeded(conditions);
 
     }
+
+	public void setCallback(final iTranslation callback) {
+
+			portuguesTranslator.translate(texto)
+					.addOnSuccessListener(new OnSuccessListener<String>() {
+						@Override
+						public void onSuccess(String s) {
+							portuguesTranslator.close();
+							callback.textTranslation(s);
+						}
+					})
+					.addOnFailureListener(
+							new OnFailureListener() {
+								@Override
+								public void onFailure(@NonNull Exception e) {
+									portuguesTranslator.close();
+									Log.e("Tradutor " , e.getMessage());
+									callback.textTranslation(texto);
+								}
+							});
+
+
+
+
+	}
 
 }

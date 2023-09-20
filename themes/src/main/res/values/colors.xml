@@ -232,4 +232,7 @@
     <color name="primaryTextColorBlueGray">#ffffff</color>
     <color name="secondaryTextColorBlueGray">#000000</color>
 
+
+    <color name="alert">#FFCDD2</color>
+    <color name="text_alert">#B71C1C</color>
 </resources>

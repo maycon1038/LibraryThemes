@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_internet_alert"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/alerta_internet"
+    android:background="@color/alert"
+    android:paddingHorizontal="@dimen/size_10dp"
+    android:paddingVertical="@dimen/size_5dp"
+    android:gravity="center"
+    android:textColor="@color/text_alert">
+
+</TextView>
