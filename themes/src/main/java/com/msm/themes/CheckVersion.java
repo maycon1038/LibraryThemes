@@ -7,7 +7,6 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.msm.themes.interfaces.CheckVersionApp;
 import com.msm.themes.interfaces.iTranslation;
-import com.msm.themes.util.Tradutor;
 
 import org.jsoup.Jsoup;
 
@@ -56,18 +55,7 @@ public class CheckVersion {
                                     .first()
                                     .ownText();
 
-                            new Tradutor(ctx, dateUpdate)
-                                    .setCallback(new iTranslation() {
-                                        @Override
-                                        public void textTranslation(String text) {
-
-                                            if (text != null) {
-                                                check.newVersionApp(newVersionPlayStore, text, news, null);
-                                            } else {
-                                                check.newVersionApp(newVersionPlayStore, dateUpdate, news, null);
-                                            }
-                                        }
-                                    });
+                            check.newVersionApp(newVersionPlayStore, dateUpdate, news, null);
                         } catch (Exception el) {
                             check.newVersionApp(null, null, null, el.getMessage());
                         }

@@ -13,13 +13,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.dialog.MaterialDialogs;
 import com.msm.themes.CheckVersion;
 import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
 import com.msm.themes.interfaces.CheckVersionApp;
 import com.msm.themes.interfaces.iTranslation;
-import com.msm.themes.util.Tradutor;
 import com.msm.themes.util.themePreferencia;
 
 

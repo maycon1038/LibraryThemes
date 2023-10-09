@@ -40,11 +40,6 @@ public class ThemeView extends View {
         init();
     }
 
-    public ThemeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
     public void setTheme(Theme theme){
         this.mTheme = theme;
         init();
