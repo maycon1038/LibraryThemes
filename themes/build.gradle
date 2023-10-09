@@ -1,7 +1,5 @@
-plugins {
-    id 'com.android.library'
-}
-group='com.github.maycon1038'
+apply plugin: 'com.android.library'
+
 android {
     compileSdk 34
     namespace 'com.msm.themes'
