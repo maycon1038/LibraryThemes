@@ -62,12 +62,12 @@ public class ConfigActivity extends SecurityBaseActivity implements CheckVersion
 		}
 
 
-	  new Tradutor(this,"The translated text, in the target language you configured, is passed to the success listener." ).setCallback(new iTranslation() {
+	 /* new Tradutor(this,"O texto traduzido, no idioma de destino que você configurou, é passado para o ouvinte de sucesso." ).setCallback(new iTranslation() {
 			@Override
 			public void textTranslation(String text) {
 				Toast.makeText(ConfigActivity.this, text, Toast.LENGTH_SHORT).show();
 			}
-		});
+		});*/
 
 	}
 
