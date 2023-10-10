@@ -24,6 +24,7 @@ android {
 		sourceCompatibility JavaVersion.VERSION_17
 		targetCompatibility JavaVersion.VERSION_17
 	}
+    ndkVersion '26.0.10792818'
 }
 
 dependencies {
