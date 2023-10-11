@@ -1,28 +1,21 @@
-plugins {
-    id 'com.android.application'
-}
-
+apply plugin: 'com.android.application'
 android {
-    namespace 'br.com.msm.librarythemes'
-    compileSdkVersion 34
+
+    compileSdk 33 //permite o uso de APIs mais recentes, pode ser feito separadamente da atualização
     defaultConfig {
         applicationId "br.com.msm.librarythemes"
-        minSdkVersion 19
-        targetSdkVersion 34
+        minSdkVersion 23  //determina em quais dispositivos o aplicativo pode ser instalado
+        targetSdkVersion 33  //ativa o aplicativo para um novo comportamento de tempo de execução
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
 	compileOptions {
-		sourceCompatibility JavaVersion.VERSION_18
-		targetCompatibility JavaVersion.VERSION_18
+		sourceCompatibility JavaVersion.VERSION_17
+		targetCompatibility JavaVersion.VERSION_17
 	}
+
 }
 
 dependencies {

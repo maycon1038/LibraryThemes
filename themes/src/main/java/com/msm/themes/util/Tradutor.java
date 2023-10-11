@@ -1,3 +1,4 @@
+/*
 package com.msm.themes.util;
 
 import android.content.Context;
@@ -65,3 +66,4 @@ public class Tradutor {
 	}
 
 }
+*/
