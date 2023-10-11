@@ -15,8 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
-import static com.msm.themes.util.Util.checkInternet;
-
 public class Main3Activity extends SecurityBaseActivity implements  ActionMode.Callback {
 
     ActionMode mActionMode;

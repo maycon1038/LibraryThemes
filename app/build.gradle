@@ -1,32 +1,28 @@
-plugins {
-    id 'com.android.application'
-}
-
-group = 'com.github.maycon1038'
-version = '3.1.6'
-
+apply plugin: 'com.android.application'
 android {
-    namespace 'br.com.msm.librarythemes'
-    compileSdk 34
+
+    compileSdk 33 //permite o uso de APIs mais recentes, pode ser feito separadamente da atualização
     defaultConfig {
         applicationId "br.com.msm.librarythemes"
-        minSdkVersion 23
-        targetSdkVersion 34
+        minSdkVersion 23  //determina em quais dispositivos o aplicativo pode ser instalado
+        targetSdkVersion 33  //ativa o aplicativo para um novo comportamento de tempo de execução
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_17
 		targetCompatibility JavaVersion.VERSION_17
 	}
-    ndkVersion '26.0.10792818'
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation project(':themes')
 
 }

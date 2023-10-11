@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.msm.themes.interfaces.CheckVersionApp;
-import com.msm.themes.interfaces.iTranslation;
 
 import org.jsoup.Jsoup;
 
@@ -54,8 +53,20 @@ public class CheckVersion {
                             final String dateUpdate = Jsoup.parse(result).select("div.hAyfc:nth-child(1) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
                                     .first()
                                     .ownText();
-
                             check.newVersionApp(newVersionPlayStore, dateUpdate, news, null);
+
+                          /*  new Tradutor(ctx, dateUpdate)
+                                    .setCallback(new iTranslation() {
+                                        @Override
+                                        public void textTranslation(String text) {
+
+                                            if (text != null) {
+                                                check.newVersionApp(newVersionPlayStore, text, news, null);
+                                            } else {
+                                                check.newVersionApp(newVersionPlayStore, dateUpdate, news, null);
+                                            }
+                                        }
+                                    });*/
                         } catch (Exception el) {
                             check.newVersionApp(null, null, null, el.getMessage());
                         }

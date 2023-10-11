@@ -9,7 +9,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -17,7 +16,6 @@ import com.msm.themes.CheckVersion;
 import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
 import com.msm.themes.interfaces.CheckVersionApp;
-import com.msm.themes.interfaces.iTranslation;
 import com.msm.themes.util.themePreferencia;
 
 
@@ -62,7 +60,7 @@ public class ConfigActivity extends SecurityBaseActivity implements CheckVersion
 		}
 
 
-	 /* new Tradutor(this,"O texto traduzido, no idioma de destino que você configurou, é passado para o ouvinte de sucesso." ).setCallback(new iTranslation() {
+/*	  new Tradutor(this,"The translated text, in the target language you configured, is passed to the success listener." ).setCallback(new iTranslation() {
 			@Override
 			public void textTranslation(String text) {
 				Toast.makeText(ConfigActivity.this, text, Toast.LENGTH_SHORT).show();
