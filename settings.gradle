@@ -1,4 +1,4 @@
-pluginManagement {
+/*pluginManagement {
     repositories {
         google()
         mavenCentral()
@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
-}
+}*/
 include ':app', ':themes'
