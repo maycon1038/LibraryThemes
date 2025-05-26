@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 android {
 
-    compileSdk 34 //permite o uso de APIs mais recentes, pode ser feito separadamente da atualização
+    compileSdk 35 //permite o uso de APIs mais recentes, pode ser feito separadamente da atualização
     defaultConfig {
         applicationId "br.com.msm.librarythemes"
-        minSdkVersion 23  //determina em quais dispositivos o aplicativo pode ser instalado
-        targetSdkVersion 34  //ativa o aplicativo para um novo comportamento de tempo de execução
+        minSdk 24  //determina em quais dispositivos o aplicativo pode ser instalado
+        targetSdk 35  //ativa o aplicativo para um novo comportamento de tempo de execução
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -15,13 +15,14 @@ android {
 		sourceCompatibility JavaVersion.VERSION_18
 		targetCompatibility JavaVersion.VERSION_18
 	}
+    namespace 'br.com.msm.librarythemes'
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'com.google.android.material:material:1.12.0'
     implementation project(':themes')
 

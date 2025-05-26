@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/secondaryColorAmber</item>
         <item name="windowActionModeOverlay">true</item>
 
+        <!-- Cor da statusBar (pode ser transparente ou sólida) -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Adicione isso para garantir texto escuro na statusBar no modo claro -->
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

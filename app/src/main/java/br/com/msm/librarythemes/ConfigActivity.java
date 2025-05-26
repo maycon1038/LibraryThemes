@@ -8,10 +8,16 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
+import com.msm.themes.BaseActivity;
 import com.msm.themes.CheckVersion;
 import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
@@ -19,7 +25,7 @@ import com.msm.themes.interfaces.CheckVersionApp;
 import com.msm.themes.util.themePreferencia;
 
 
-public class ConfigActivity extends SecurityBaseActivity implements CheckVersionApp {
+public class ConfigActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,38 +55,39 @@ public class ConfigActivity extends SecurityBaseActivity implements CheckVersion
 
 
 
-		PackageInfo pInfo = null;
-		try {
-			pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
 
-			CheckVersion cv = new CheckVersion(this, pInfo);
-			cv.getVersionPlayStore(this);
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
+
+	}
+
+	// PASSO 3: Inflar o menu
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu); // Usa o R.menu.main que você criou
+		return true; // Retorna true para que o menu seja exibido
+	}
+
+	// PASSO 4: Lidar com cliques nos itens do menu
+	@Override
+	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+		// Lida com cliques nos itens da action bar aqui.
+		// A action bar automaticamente lida com cliques no botão Home/Up,
+		// desde que você especifique uma parent activity no AndroidManifest.xml.
+		int id = item.getItemId();
+
+		if (id == R.id.action_settings) {
+			Toast.makeText(this, "Configurações clicado!", Toast.LENGTH_SHORT).show();
+			// Adicione aqui a lógica para abrir sua tela de configurações
+			return true;
+		} else if (id == R.id.action_search) {
+			Toast.makeText(this, "Buscar clicado!", Toast.LENGTH_SHORT).show();
+			// Adicione aqui a lógica para a ação de busca
+			return true;
 		}
 
-
-/*	  new Tradutor(this,"The translated text, in the target language you configured, is passed to the success listener." ).setCallback(new iTranslation() {
-			@Override
-			public void textTranslation(String text) {
-				Toast.makeText(ConfigActivity.this, text, Toast.LENGTH_SHORT).show();
-			}
-		});*/
-
+		return super.onOptionsItemSelected(item);
 	}
 
-
-
-	@Override
-	public void newVersionApp(String versionPlayStory, String dateUpdate, String news, String erro) {
-
-
-		Log.d("newVersionApp",versionPlayStory +
-				"\n" + dateUpdate +
-				"\n" + news +
-				"\n" + erro
-		);
-	}
 
 	@Override
 	protected void onResume() {
