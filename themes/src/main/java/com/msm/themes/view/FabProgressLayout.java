@@ -1,5 +1,6 @@
 package com.msm.themes.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
+import com.google.android.material.snackbar.Snackbar.SnackbarLayout;
 import com.msm.themes.R;
 
 
@@ -70,7 +72,7 @@ public class FabProgressLayout extends FrameLayout {
 
     private void resize() {
         float translationZpx = getResources().getDisplayMetrics().density * 6; // 6 is needed for progress bar to be visible, 5 doesn't work
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP)
+     //   if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP)
             mProgressBar.setTranslationZ(translationZpx);
 
         LayoutParams mFabParams = ((LayoutParams) mFab.getLayoutParams());
@@ -103,10 +105,10 @@ public class FabProgressLayout extends FrameLayout {
             super(context, attrs);
         }
 
+        @SuppressLint("RestrictedApi")
         @Override
-        public boolean layoutDependsOn(CoordinatorLayout parent, FabProgressLayout child,
-                                       View dependency) {
-            return dependency instanceof Snackbar.SnackbarLayout;
+        public boolean layoutDependsOn(CoordinatorLayout parent, FabProgressLayout child, View dependency) {
+            return dependency instanceof SnackbarLayout;
         }
 
         @Override
