@@ -4,7 +4,7 @@ package com.msm.themes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
 
@@ -41,7 +41,11 @@ public class ThemeUtil {
      public static final int MODE_NIGHT_NO = 1;
     public static final int MODE_NIGHT_YES = 2;
     public static final int MODE_NIGHT_AUTO = 0;
-
+    // Modos possíveis:
+// - MODE_NIGHT_NO (claro)
+// - MODE_NIGHT_YES (escuro)
+// - MODE_NIGHT_FOLLOW_SYSTEM (segue o sistema)
+// - MODE_NIGHT_AUTO_BATTERY (automático + economia de bateria)
     public static void setMode(Context ctx, boolean ModeNight) {
 
         if(ModeNight){
@@ -50,11 +54,11 @@ public class ThemeUtil {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
-        SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
-      //  SharedPreferences sharedpreferences = ctx.getSharedPreferences(MyPrefTheme, Context.MODE_PRIVATE);
+      //   SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
+       SharedPreferences sharedpreferences = ctx.getSharedPreferences(MyPrefTheme, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean("ModeNight", ModeNight);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setMyTheme(Context ctx, int themeid) {
@@ -62,7 +66,7 @@ public class ThemeUtil {
         SharedPreferences sharedpreferences = ctx.getSharedPreferences(MyPrefTheme, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putInt("theme", themeid);
-        editor.commit();
+        editor.apply();
 
     }
 
@@ -74,12 +78,12 @@ public class ThemeUtil {
 
         SharedPreferences.Editor theme = sharedpreferences.edit();
         theme.putInt("theme", themeid);
-        theme.commit();
+        theme.apply();
 
 
         SharedPreferences.Editor mode = sharedpreferences.edit();
         mode.putInt("ModeNight", ModeNight);
-        mode.commit();
+        mode.apply();
 
     }
 
@@ -191,8 +195,7 @@ public class ThemeUtil {
 
     public static boolean getModeNightFromPreferences(Context ctx) {
 
-        SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
-      //  SharedPreferences sharedpreferences = ctx.getSharedPreferences(MyPrefTheme, Context.MODE_PRIVATE);
+        SharedPreferences sharedpreferences = ctx.getSharedPreferences(MyPrefTheme, Context.MODE_PRIVATE);
         return sharedpreferences.getBoolean("ModeNight", false);
 
 
