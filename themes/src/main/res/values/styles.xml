@@ -7,11 +7,11 @@
         <item name="colorPrimaryDark">@color/primaryDarkColorAmber</item>
         <item name="colorAccent">@color/secondaryColorAmber</item>
         <item name="windowActionModeOverlay">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <!-- Cor da statusBar (pode ser transparente ou sólida) -->
+      <!--  <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        &lt;!&ndash; Cor da statusBar (pode ser transparente ou sólida) &ndash;&gt;
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <!-- Adicione isso para garantir texto escuro na statusBar no modo claro -->
-        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        &lt;!&ndash; Adicione isso para garantir texto escuro na statusBar no modo claro &ndash;&gt;
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
