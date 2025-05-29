@@ -235,4 +235,69 @@
 
     <color name="alert">#FFCDD2</color>
     <color name="text_alert">#B71C1C</color>
+
+
+    <!-- Material Red Palette -->
+    <color name="material_red_50">#FFEBEE</color>
+    <color name="material_red_100">#FFCDD2</color>
+    <color name="material_red_200">#EF9A9A</color>
+    <color name="material_red_300">#E57373</color>
+    <color name="material_red_400">#EF5350</color>
+    <color name="material_red_500">#F44336</color>
+    <color name="material_red_600">#E53935</color>
+    <color name="material_red_700">#D32F2F</color>  <!-- Esta é a que você pediu -->
+    <color name="material_red_800">#C62828</color>
+    <color name="material_red_900">#B71C1C</color>
+
+    <!-- Variações com transparência (opcional) -->
+    <color name="material_red_700_10">#1AD32F2F</color>  <!-- 10% opacity -->
+    <color name="material_red_700_30">#4DD32F2F</color>  <!-- 30% opacity -->
+    <color name="material_red_700_60">#99D32F2F</color>  <!-- 60% opacity -->
+
+    <!-- Cores semânticas baseadas no vermelho -->
+    <color name="error_color">@color/material_red_700</color>
+    <color name="error_container">@color/material_red_100</color>
+
+
+    <!-- Material Orange Palette -->
+    <color name="material_orange_50">#FFF3E0</color>
+    <color name="material_orange_100">#FFE0B2</color>
+    <color name="material_orange_200">#FFCC80</color>
+    <color name="material_orange_300">#FFB74D</color>
+    <color name="material_orange_400">#FFA726</color>
+    <color name="material_orange_500">#FF9800</color>
+    <color name="material_orange_600">#FB8C00</color>
+    <color name="material_orange_700">#F57C00</color>  <!-- Cor principal solicitada -->
+    <color name="material_orange_800">#EF6C00</color>
+    <color name="material_orange_900">#E65100</color>
+
+    <!-- Variações com transparência para orange_700 -->
+    <color name="material_orange_700_10">#1AF57C00</color>  <!-- 10% opacity -->
+    <color name="material_orange_700_30">#4DF57C00</color>  <!-- 30% opacity -->
+    <color name="material_orange_700_60">#99F57C00</color>  <!-- 60% opacity -->
+
+    <!-- Cores semânticas baseadas no laranja -->
+    <color name="warning_color">@color/material_orange_700</color>
+    <color name="warning_container">@color/material_orange_100</color>
+
+    <!-- Material Green Palette -->
+    <color name="material_green_50">#E8F5E9</color>
+    <color name="material_green_100">#C8E6C9</color>
+    <color name="material_green_200">#A5D6A7</color>
+    <color name="material_green_300">#81C784</color>
+    <color name="material_green_400">#66BB6A</color>
+    <color name="material_green_500">#4CAF50</color>
+    <color name="material_green_600">#43A047</color>
+    <color name="material_green_700">#388E3C</color>  <!-- Cor principal solicitada -->
+    <color name="material_green_800">#2E7D32</color>
+    <color name="material_green_900">#1B5E20</color>
+
+    <!-- Variações com transparência para green_700 -->
+    <color name="material_green_700_10">#1A388E3C</color>  <!-- 10% opacity -->
+    <color name="material_green_700_30">#4D388E3C</color>  <!-- 30% opacity -->
+    <color name="material_green_700_60">#99388E3C</color>  <!-- 60% opacity -->
+
+    <!-- Cores semânticas baseadas no verde -->
+    <color name="success_color">@color/material_green_700</color>
+    <color name="success_container">@color/material_green_100</color>
 </resources>

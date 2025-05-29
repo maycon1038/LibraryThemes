@@ -33,7 +33,7 @@ public class ConfigActivity extends BaseActivity {
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
-		findViewById(R.id.btn_themaModo).setOnClickListener(new View.OnClickListener() {
+		/*findViewById(R.id.btn_themaModo).setOnClickListener(new View.OnClickListener() {
 			@SuppressLint("WrongConstant")
 			@Override
 			public void onClick(View v) {
@@ -49,7 +49,7 @@ public class ConfigActivity extends BaseActivity {
 						break;
 				}
 			}
-		});
+		});*/
 
 		themePreferencia.setProvider(this,"teste");
 

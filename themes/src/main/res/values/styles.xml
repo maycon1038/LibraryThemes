@@ -7,11 +7,11 @@
         <item name="colorPrimaryDark">@color/primaryDarkColorAmber</item>
         <item name="colorAccent">@color/secondaryColorAmber</item>
         <item name="windowActionModeOverlay">true</item>
-      <!--  <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        &lt;!&ndash; Cor da statusBar (pode ser transparente ou sólida) &ndash;&gt;
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!-- Cor da statusBar (pode ser transparente ou sólida) -->
         <item name="android:statusBarColor">@android:color/transparent</item>
-        &lt;!&ndash; Adicione isso para garantir texto escuro na statusBar no modo claro &ndash;&gt;
-        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>-->
+        <!-- Adicione isso para garantir texto escuro na statusBar no modo claro -->
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -201,6 +201,76 @@
 	<style name="Text.Headline5" parent="TextAppearance.MaterialComponents.Headline5"/>
 	<style name="Text.Headline6" parent="TextAppearance.MaterialComponents.Headline6"/>
     <style name="Text.Button" parent="TextAppearance.MaterialComponents.Button"/>
+
+    <style name="Text.BodySmall" parent="TextAppearance.Material3.BodySmall"/>
+    <style name="Text.BodyMedium" parent="TextAppearance.Material3.BodyMedium"/>
+    <style name="Text.BodyLarge" parent="TextAppearance.Material3.BodyLarge"/>
+    <style name="Text.TitleSmall" parent="TextAppearance.Material3.TitleSmall"/>
+    <style name="Text.TitleMedium" parent="TextAppearance.Material3.TitleMedium"/>
+    <style name="Text.TitleLarge" parent="TextAppearance.Material3.TitleLarge"/>
+
+    <style name="ActionBar.Title" parent="TextAppearance.Material3.ActionBar.Title"/>
+    <style name="ActionBar.Subtitle" parent="TextAppearance.Material3.ActionBar.Subtitle"/>
+    <style name="DisplaySmall" parent="TextAppearance.Material3.DisplaySmall"/>
+    <style name="DisplayMedium" parent="TextAppearance.Material3.DisplayMedium"/>
+    <style name="DisplayLarge" parent="TextAppearance.Material3.DisplayLarge"/>
+
+
+
+    <!-- Estilos adicionais que recomendo incluir -->
+    <style name="Text.Chip" parent="TextAppearance.MaterialComponents.Chip"/>
+    <style name="Text.TimePickerTitle" parent="TextAppearance.MaterialComponents.TimePicker.Title"/>
+
+
+    <!-- Variações de peso -->
+    <style name="Text.Body1.Bold" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Body2.Medium" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+
+
+    <!-- Estilos para diálogos -->
+    <style name="Text.DialogTitle" parent="TextAppearance.MaterialComponents.Headline6"/>
+    <style name="Text.DialogBody" parent="TextAppearance.MaterialComponents.Body1"/>
+
+    <!-- Estilos para listas -->
+    <style name="Text.ListItemPrimary" parent="TextAppearance.MaterialComponents.Subtitle1"/>
+    <style name="Text.ListItemSecondary" parent="TextAppearance.MaterialComponents.Body2"/>
+
+    <!-- Estilos para cards -->
+    <style name="Text.CardTitle" parent="TextAppearance.MaterialComponents.Headline6"/>
+    <style name="Text.CardSubtitle" parent="TextAppearance.MaterialComponents.Subtitle2"/>
+    <style name="Text.CardBody" parent="TextAppearance.MaterialComponents.Body1"/>
+
+
+
+    <!-- Estilos para chips -->
+    <style name="Text.FilterChip" parent="TextAppearance.MaterialComponents.Chip"/>
+    <style name="Text.ChoiceChip" parent="TextAppearance.MaterialComponents.Chip"/>
+    <style name="Text.InputChip" parent="TextAppearance.MaterialComponents.Chip"/>
+
+    <!-- Estilos para mensagens de status -->
+    <style name="Text.Success" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/material_green_700</item>
+    </style>
+
+    <style name="Text.Error" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/material_red_700</item>
+    </style>
+
+    <style name="Text.Warning" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/material_orange_700</item>
+    </style>
+
+    <!-- Estilo para código/monospace -->
+    <style name="Text.Code" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">monospace</item>
+    </style>
 
     <!-- Button Styles-->
     <style name="Button" parent="Widget.MaterialComponents.Button"/>
