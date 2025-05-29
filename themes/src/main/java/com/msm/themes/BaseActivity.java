@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 import static com.msm.themes.ThemeUtil.getThemeFromPreferences;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
 
     @Override
