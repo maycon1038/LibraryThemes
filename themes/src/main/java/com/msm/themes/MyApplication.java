@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 public class MyApplication extends Application {
 
-    static {
+   /* static {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-    }
+    }*/
 
     @Override
     public void onCreate() {

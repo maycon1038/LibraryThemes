@@ -5,10 +5,12 @@ import android.content.ComponentCallbacks2;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.view.WindowCompat;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
 import static com.msm.themes.ThemeUtil.getThemeFromPreferences;
@@ -20,6 +22,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(ThemeUtil.getThemeId(getThemeFromPreferences(this)));
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
    //https://developer.android.com/guide/topics/ui/look-and-feel/darktheme#altera%C3%A7%C3%B5es_de_configura%C3%A7%C3%A3o
 /*        if(getModeNightFromPreferences(this)){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);

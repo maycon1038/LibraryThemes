@@ -12,13 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.view.WindowCompat;
 
 public abstract class SecurityBaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         // Configuração de tema
         setTheme(ThemeUtil.getThemeId(getThemeFromPreferences(this)));
 
