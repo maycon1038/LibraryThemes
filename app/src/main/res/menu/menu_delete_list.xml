@@ -15,7 +15,7 @@
 
     <item
         android:id="@+id/acao_delete"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_custom_loader_base"
         android:title="teste"
         app:showAsAction="ifRoom" />
 

@@ -3,13 +3,18 @@ package com.msm.themes.util;
 
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
+import static android.widget.ListPopupWindow.WRAP_CONTENT;
+
+import static com.afollestad.materialdialogs.lifecycle.LifecycleExtKt.lifecycleOwner;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
@@ -23,15 +28,20 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.customview.DialogCustomViewExtKt;
 import com.msm.themes.R;
 
 import java.text.SimpleDateFormat;
@@ -52,22 +62,18 @@ public class Util {
 
     }
 
-    public static MaterialDialog Progress(Context ctx) {
-        // Na v3, não há um método direto ".progress(true, 0)".
-        // Um diálogo simples com título/mensagem e sem botões,
-        // e não cancelável, geralmente serve como um diálogo de "aguarde".
-        // Para um indicador visual explícito, você usaria um customView.
+    public static Dialog Progress(@NonNull Context ctx) {
 
-        // Abordagem 1: Diálogo simples de "Aguarde" (sem ProgressBar explícito no corpo)
-        // Ou use R.string.sua_string_aguarde
-        // .message(null, "Processando...") // Opcional, se o título for suficiente
-        // Impede que o usuário feche o diálogo
-        // .noAutoDismiss(); // Se você planeja adicionar botões e não quer que eles fechem o diálogo
-
-        return new MaterialDialog(ctx, MaterialDialog.getDEFAULT_BEHAVIOR())
-                .title(null, "Aguarde...") // Ou use R.string.sua_string_aguarde
-                // .message(null, "Processando...") // Opcional, se o título for suficiente
-                .cancelable(true);
+        if (ctx == null) {
+            // A anotação @NonNull em ctx já sugere que isso não deveria acontecer
+            // se os chamadores respeitarem o contrato.
+            // Manter a exceção é bom para impor isso.
+            Log.e("Util.Progress", "O contexto não pode ser nulo para a caixa de diálogo de progresso.");
+            throw new IllegalArgumentException("O contexto não pode ser nulo para diálogo de progresso");
+        }
+        Dialog dialog = new Dialog(ctx, R.style.AppTheme_GREEN_DARK);
+        dialog.setContentView(R.layout.dialog_animated_progress);
+        return dialog;
     }
 
     public static String ReplaceStrings(final String str) {
@@ -87,7 +93,7 @@ public class Util {
 
     public static int parseInt(String str){
 
-        if(!str.contains("null") && str.length() >= 1){
+        if(!str.contains("null") && !str.isEmpty()){
             return   Integer.parseInt(str.replaceAll("\"",""));
         }else{
             return  0;
@@ -294,7 +300,7 @@ public class Util {
                 m +=" m";
             }
             rt = km + " "+ m;
-        }else if(valor < 1000){
+        }else {
 
             m =  String.valueOf(valor) + " m";
 

@@ -5,6 +5,7 @@ import static com.msm.themes.util.Util.checkInternet;
 import static com.msm.themes.util.Util.showAviso;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
@@ -61,7 +62,7 @@ public class ConfigActivity extends BaseActivity {
             return WindowInsetsCompat.CONSUMED;
         });
 
-        MaterialDialog pg = Progress(this);
+        Dialog pg = Progress(this);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")
