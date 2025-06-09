@@ -7,11 +7,11 @@
         <item name="colorPrimaryDark">@color/primaryDarkColorAmber</item>
         <item name="colorAccent">@color/secondaryColorAmber</item>
         <item name="windowActionModeOverlay">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <!-- Cor da statusBar (pode ser transparente ou sólida) -->
+      <!--  <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        &lt;!&ndash; Cor da statusBar (pode ser transparente ou sólida) &ndash;&gt;
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <!-- Adicione isso para garantir texto escuro na statusBar no modo claro -->
-        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        &lt;!&ndash; Adicione isso para garantir texto escuro na statusBar no modo claro &ndash;&gt;
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -273,12 +273,17 @@
     </style>
 
     <!-- Button Styles-->
-    <style name="Button" parent="Widget.MaterialComponents.Button"/>
+
 	<style name="Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton"/>
 	<style name="Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton"/>
     <style name="Buton.TextButton.Dialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog"/>
     <style name="Buton.TextButton.Dialog.Flush" parent="Widget.MaterialComponents.Button.TextButton.Dialog.Flush"/>
 	<style name="Buton.UnelevatedButton" parent="Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+    <style name="Button" parent="TextAppearance.AppCompat.Widget.Button"/>
+    <style name="Button.Colored" parent="TextAppearance.AppCompat.Widget.Button.Colored"/>
+    <style name="Button.Borderless" parent="TextAppearance.AppCompat.Widget.Button.Borderless.Colored"/>
+    <style name="Button.Inverse" parent="TextAppearance.AppCompat.Widget.Button.Inverse"/>
 
     <style name="Theme_Dialog_Translucent" parent="android:Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>

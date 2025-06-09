@@ -1,175 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	app:layout_behavior="@string/appbar_scrolling_view_behavior"
-	tools:context=".ConfigActivity"
-	tools:showIn="@layout/activity_main2">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ConfigActivity"
+    tools:showIn="@layout/activity_main2">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/nested_scroll_content"
+        android:layout_margin="@dimen/size_16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
-	<androidx.core.widget.NestedScrollView
-		android:layout_width="0dp"
-		android:layout_height="0dp"
-		android:layout_margin="@dimen/size_16dp"
-		android:orientation="vertical"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent">
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+            <TextView
+                style="@style/DisplaySmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="DisplaySmall" />
 
 
-			<TextView
-				style="@style/DisplaySmall"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="DisplaySmall" />
+            <TextView
+                style="@style/DisplayMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="DisplayMedium" />
+
+            <TextView
+                style="@style/Text.Overline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_16dp"
+                android:text="Text.Overline" />
+
+            <TextView
+                style="@style/Text.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Caption" />
+
+            <TextView
+                style="@style/Text.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Body1"
+                app:fontFamily="@font/amaranth" />
+
+            <TextView
+                style="@style/Text.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Body2" />
 
 
+            <TextView
+                style="@style/Text.BodySmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.BodySmall"
+                app:fontFamily="@font/amaranth" />
 
-			<TextView
-				style="@style/DisplayMedium"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="DisplayMedium" />
-
-			<TextView
-				style="@style/Text.Overline"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_16dp"
-				android:text="Text.Overline" />
-
-			<TextView
-				style="@style/Text.Caption"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Caption" />
-
-			<TextView
-				style="@style/Text.Body1"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Body1"
-				app:fontFamily="@font/amaranth" />
-
-			<TextView
-				style="@style/Text.Body2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Body2" />
+            <TextView
+                style="@style/Text.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.BodyMedium" />
 
 
-			<TextView
-				style="@style/Text.BodySmall"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.BodySmall"
-				app:fontFamily="@font/amaranth" />
+            <TextView
+                style="@style/Text.BodyLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.BodyLarge" />
 
-			<TextView
-				style="@style/Text.BodyMedium"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.BodyMedium" />
+            <TextView
+                style="@style/Text.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Subtitle1" />
 
+            <TextView
+                style="@style/Text.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Subtitle2" />
 
-			<TextView
-				style="@style/Text.BodyLarge"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.BodyLarge" />
+            <TextView
+                style="@style/Text.Headline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Headline1" />
 
-			<TextView
-				style="@style/Text.Subtitle1"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Subtitle1" />
+            <TextView
+                style="@style/Text.Headline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Headline2" />
 
-			<TextView
-				style="@style/Text.Subtitle2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Subtitle2"  />
+            <TextView
+                style="@style/Text.Headline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Headline3" />
 
-			<TextView
-				style="@style/Text.Headline1"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Headline1" />
+            <TextView
+                style="@style/Text.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Headline4" />
 
-			<TextView
-				style="@style/Text.Headline2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Headline2" />
+            <TextView
+                style="@style/Text.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.Headline5" />
 
-			<TextView
-				style="@style/Text.Headline3"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Headline3" />
+            <TextView
+                style="@style/Text.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Text.Headline6" />
 
-			<TextView
-				style="@style/Text.Headline4"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Headline4" />
-
-			<TextView
-				style="@style/Text.Headline5"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Headline5" />
-
-			<TextView
-				style="@style/Text.Headline6"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Headline6" />
-
-			<TextView
-				style="@style/Text.Button"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Text.Button" />
+            <TextView
+                android:id="@+id/button"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Button"
+                tools:ignore="HardcodedText" />
 
 
-			<TextView
-				style="@style/Text.Button"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/size_5dp"
-				android:text="Traduzindo Text..." />
-		</LinearLayout>
+            <Button
+                android:id="@+id/outlinedButton"
+                style="@style/Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="OutlinedButton"
+                tools:ignore="HardcodedText" />
 
 
-	</androidx.core.widget.NestedScrollView>
+            <Button
+                android:id="@+id/borderless"
+                style="@style/Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Borderless"
+                tools:ignore="HardcodedText" />
 
+
+            <Button
+                android:id="@+id/inverse"
+                style="@style/Button.Inverse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Inverse"
+                tools:ignore="HardcodedText" />
+
+
+            <Button
+                android:id="@+id/colored"
+                style="@style/Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Colored"
+                tools:ignore="Colored" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

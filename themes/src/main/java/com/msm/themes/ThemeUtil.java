@@ -46,7 +46,7 @@ public class ThemeUtil {
 // - MODE_NIGHT_YES (escuro)
 // - MODE_NIGHT_FOLLOW_SYSTEM (segue o sistema)
 // - MODE_NIGHT_AUTO_BATTERY (automático + economia de bateria)
-    public static void setMode(Context ctx, boolean ModeNight) {
+/*    public static void setMode(Context ctx, boolean ModeNight) {
 
         if(ModeNight){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -59,7 +59,7 @@ public class ThemeUtil {
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean("ModeNight", ModeNight);
         editor.apply();
-    }
+    }*/
 
     public static void setMyTheme(Context ctx, int themeid) {
         ctx.setTheme(getThemeId(themeid));
@@ -70,7 +70,7 @@ public class ThemeUtil {
 
     }
 
-    public void setModeTheme(Context ctx, int ModeNight, int themeid) {
+/*    public void setModeTheme(Context ctx, int ModeNight, int themeid) {
 
         ctx.setTheme(getThemeId(themeid));
         AppCompatDelegate.setDefaultNightMode(ModeNight);
@@ -85,7 +85,7 @@ public class ThemeUtil {
         mode.putInt("ModeNight", ModeNight);
         mode.apply();
 
-    }
+    }*/
 
     public List<Theme> getListTheme() {
         return ThemeUtil.getThemeList();

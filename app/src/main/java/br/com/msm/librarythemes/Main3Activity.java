@@ -3,19 +3,27 @@ package br.com.msm.librarythemes;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.msm.themes.BaseActivity;
 import com.msm.themes.SecurityBaseActivity;
 import com.msm.themes.ThemeUtil;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import static com.msm.themes.ThemeUtil.getModeNightFromPreferences;
-public class Main3Activity extends SecurityBaseActivity implements  ActionMode.Callback {
+public class Main3Activity extends BaseActivity implements  ActionMode.Callback {
 
     ActionMode mActionMode;
 
@@ -27,7 +35,24 @@ public class Main3Activity extends SecurityBaseActivity implements  ActionMode.C
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-		startActivity(new Intent(Main3Activity.this, ConfigActivity.class));
+     /*   // Armazena os paddings originais da Toolbar
+        final int toolbarInitialPaddingLeft = toolbar.getPaddingLeft();
+        final int toolbarInitialPaddingTop = toolbar.getPaddingTop();
+        final int toolbarInitialPaddingRight = toolbar.getPaddingRight();
+        final int toolbarInitialPaddingBottom = toolbar.getPaddingBottom();
+
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            v.setPadding(
+                    toolbarInitialPaddingLeft,
+                    toolbarInitialPaddingTop + insets.top, // Adiciona o inset da status bar ao padding original do topo
+                    toolbarInitialPaddingRight,
+                    toolbarInitialPaddingBottom
+            );
+            return WindowInsetsCompat.CONSUMED; // Ou windowInsets
+        });*/
+        startActivity(new Intent(Main3Activity.this, ConfigActivity.class));
     }
 
 

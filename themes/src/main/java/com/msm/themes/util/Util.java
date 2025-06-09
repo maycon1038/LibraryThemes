@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -38,6 +39,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 
 public class Util {
 
@@ -49,12 +53,23 @@ public class Util {
     }
 
     public static MaterialDialog Progress(Context ctx) {
+        // Na v3, não há um método direto ".progress(true, 0)".
+        // Um diálogo simples com título/mensagem e sem botões,
+        // e não cancelável, geralmente serve como um diálogo de "aguarde".
+        // Para um indicador visual explícito, você usaria um customView.
 
-        MaterialDialog p = new MaterialDialog.Builder(ctx)
-                .content("Aguarde...")
-                .progress(true, 0).build();
-        return p;
+        // Abordagem 1: Diálogo simples de "Aguarde" (sem ProgressBar explícito no corpo)
+        // Ou use R.string.sua_string_aguarde
+        // .message(null, "Processando...") // Opcional, se o título for suficiente
+        // Impede que o usuário feche o diálogo
+        // .noAutoDismiss(); // Se você planeja adicionar botões e não quer que eles fechem o diálogo
+
+        return new MaterialDialog(ctx, MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, "Aguarde...") // Ou use R.string.sua_string_aguarde
+                // .message(null, "Processando...") // Opcional, se o título for suficiente
+                .cancelable(true);
     }
+
     public static String ReplaceStrings(final String str) {
         return str.replace(" ", "")
                 .replace(".", "").
@@ -82,7 +97,7 @@ public class Util {
     }
 
     public static double parseDouble(String str){
-        if(!str.contains("null") && str.length() >= 1){
+        if(!str.contains("null") && !str.isEmpty()){
             return   Double.parseDouble(str.replaceAll("\"",""));
         }else{
             return  0;
@@ -92,7 +107,7 @@ public class Util {
     }
 
     public static String parseString(String str){
-        if(!str.contains("null") && str.length() >= 1){
+        if(!str.contains("null") && !str.isEmpty()){
             return  str.replaceAll("\"","");
         }else{
             return  "";
@@ -102,11 +117,12 @@ public class Util {
 
     public static MaterialDialog ProgressNotCancel(Context ctx) {
 
-        MaterialDialog p = new MaterialDialog.Builder(ctx)
-                .content("Aguarde...")
-                .cancelable(false)
-                .progress(true, 0).build();
-        return p;
+        return new MaterialDialog(ctx, MaterialDialog.getDEFAULT_BEHAVIOR())
+                .title(null, "Aguarde...") // Ou use R.string.sua_string_aguarde
+                // .message(null, "Processando...") // Opcional, se o título for suficiente
+                .cancelable(false);
+
+
     }
 
     ///para trabalhar com datas
@@ -133,7 +149,7 @@ public class Util {
         if(dateToFormat == null && formatTo != null){
             dateToFormat = formatTo.format(new Date());
         }
-        if(dateToFormat == null && formatTo == null){
+        if(dateToFormat == null){
             dateToFormat =  new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         }
 
@@ -147,6 +163,7 @@ public class Util {
         boolean isNetwork = false;
         boolean isInternet = false;
         if(internet != null){
+            assert nc != null;
             isNetwork = nc.hasCapability(NET_CAPABILITY_INTERNET);
         }
         if(internet != null) {
@@ -219,11 +236,36 @@ public class Util {
 
 
     public static void showAviso(Context ctx, Drawable icon, String title, String msm) {
-        new MaterialDialog.Builder(ctx)
-                .title(title)
-                .icon(icon)
-                .content(msm)
-                .positiveText("Ok").show();
+
+
+        if (ctx == null) {
+            // Logar um erro ou lançar uma exceção, pois o contexto é essencial
+            Log.e("Util.showAviso", "O contexto não pode ser nulo");
+            return;
+        }
+
+        MaterialDialog dialogBuilder = new MaterialDialog(ctx, MaterialDialog.getDEFAULT_BEHAVIOR())
+                .positiveButton(android.R.string.ok, null, materialDialog -> {
+                    materialDialog.dismiss();
+                    return null; // Para a lambda em Java que retorna Unit em Kotlin, retornar null é comum.
+                    // Ou, se o lambda não precisar retornar nada (void), ajuste a assinatura do callback se possível.
+                    // No caso da lib do Afollestad, o callback para botões geralmente é (MaterialDialog) -> Unit,
+                    // então retornar null para simular Unit é o padrão em Java.
+                });
+
+        if (title != null && !title.isEmpty()) {
+            dialogBuilder.title(null, title);
+        }
+
+        if (msm != null && !msm.isEmpty()) {
+            dialogBuilder.message(null, msm, null);
+        }
+
+        if (icon != null) {
+            dialogBuilder.icon(null, icon);
+        }
+
+        dialogBuilder.show();
     }
 
     public static double distanceBetweendouble(double lat,double lng,double lat2, double lng2) {
