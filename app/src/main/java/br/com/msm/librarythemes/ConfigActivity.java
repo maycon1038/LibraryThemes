@@ -23,6 +23,7 @@ import androidx.core.widget.NestedScrollView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.msm.themes.BaseActivity;
+import com.techiness.progressdialoglibrary.ProgressDialog;
 
 
 public class ConfigActivity extends BaseActivity {
@@ -62,7 +63,10 @@ public class ConfigActivity extends BaseActivity {
             return WindowInsetsCompat.CONSUMED;
         });
 
-        Dialog pg = Progress(this);
+        ProgressDialog pg = Progress(this);
+
+
+
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")

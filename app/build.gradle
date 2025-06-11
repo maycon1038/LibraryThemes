@@ -5,7 +5,7 @@ android {
     compileSdk 35 //permite o uso de APIs mais recentes, pode ser feito separadamente da atualização
     defaultConfig {
         applicationId "br.com.msm.librarythemes"
-        minSdk 23  //determina em quais dispositivos o aplicativo pode ser instalado
+        minSdk 24  //determina em quais dispositivos o aplicativo pode ser instalado
         targetSdk 35  //ativa o aplicativo para um novo comportamento de tempo de execução
         versionCode 1
         versionName "1.0"
@@ -25,6 +25,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
     implementation 'com.afollestad.material-dialogs:lifecycle:3.2.1'
+    implementation 'com.github.techinessoverloaded:progress-dialog:1.5.1'
     implementation project(':themes')
 
 }
