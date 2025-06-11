@@ -13,11 +13,6 @@
 
 
 
-    <item
-        android:id="@+id/acao_delete"
-        android:icon="@drawable/ic_custom_loader_base"
-        android:title="teste"
-        app:showAsAction="ifRoom" />
 
 
 

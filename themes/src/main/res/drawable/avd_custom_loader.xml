@@ -1,6 +1,0 @@
-<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/ic_custom_loader_base">
-    <target
-        android:name="rotation_group"
-        android:animation="@animator/anim_loader_rotate" />
-</animated-vector>
