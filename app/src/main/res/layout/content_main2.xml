@@ -94,6 +94,29 @@
                 android:layout_margin="@dimen/size_5dp"
                 android:text="Text.BodyLarge" />
 
+
+            <TextView
+                style="@style/Text.TitleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.TitleSmall" />
+
+            <TextView
+                style="@style/Text.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.TitleMedium" />
+
+
+            <TextView
+                style="@style/Text.TitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_5dp"
+                android:text="Text.TitleLarge" />
+
             <TextView
                 style="@style/Text.Subtitle1"
                 android:layout_width="wrap_content"
@@ -150,8 +173,44 @@
                 android:layout_margin="@dimen/size_15dp"
                 android:text="Text.Headline6" />
 
-            <TextView
+            <Button
                 android:id="@+id/button"
+                style="@style/Widget.App.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/progress_star"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Widget.App.Button"
+                tools:ignore="HardcodedText" />
+
+
+            <Button
+                android:id="@+id/TextButton"
+                style="@style/Widget.App.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/progress_star"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Widget.App.Button.TextButton"
+                tools:ignore="HardcodedText" />
+
+
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/Widget.App.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/progress_star"
+                android:layout_margin="@dimen/size_15dp"
+                android:text="Widget.App.Button.OutlinedButton"
+                tools:ignore="HardcodedText" />
+
+
+
+
+            <TextView
+                android:id="@+id/button4"
                 style="@style/Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
