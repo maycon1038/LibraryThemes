@@ -30,6 +30,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.msm.themes.R;
@@ -187,6 +190,34 @@ public class Util {
             toast.show();
 
         }
+    }
+
+    public static void ajustarLayout(View v0){
+
+
+        final int initialPaddingLeft = v0.getPaddingLeft();
+        final int initialPaddingTop = v0.getPaddingTop();
+        final int initialPaddingRight = v0.getPaddingRight();
+        final int initialPaddingBottom = v0.getPaddingBottom();
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(v0, (v, windowInsets) -> {
+            // Obtém os insets combinados das barras do sistema e dos display cutouts
+            Insets systemAndCutoutInsets = windowInsets.getInsets(
+                    WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout()
+            );
+
+            // Aplica os insets adicionando-os aos paddings originais da view
+            v.setPadding(
+                    initialPaddingLeft + systemAndCutoutInsets.left,
+                    initialPaddingTop + systemAndCutoutInsets.top,
+                    initialPaddingRight + systemAndCutoutInsets.right,
+                    initialPaddingBottom + systemAndCutoutInsets.bottom // Usa apenas systemAndCutoutInsets.bottom
+            );
+
+            // Consome os insets para evitar que as views filhas os apliquem novamente
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     public static boolean verificaInternetStatus(Context ctx) {
