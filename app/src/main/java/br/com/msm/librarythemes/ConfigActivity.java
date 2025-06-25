@@ -1,6 +1,7 @@
 package br.com.msm.librarythemes;
 
 import static com.msm.themes.util.Util.Progress;
+import static com.msm.themes.util.Util.ajustarLayout;
 import static com.msm.themes.util.Util.checkInternet;
 import static com.msm.themes.util.Util.showAviso;
 
@@ -37,33 +38,9 @@ public class ConfigActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         ctx =  this;
 
-        NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_content); // Dê um ID ao seu NestedScrollView em content_main2.xml
-
-
-        final int initialPaddingLeft = nestedScrollView.getPaddingLeft();
-        final int initialPaddingTop = nestedScrollView.getPaddingTop();
-        final int initialPaddingRight = nestedScrollView.getPaddingRight();
-        final int initialPaddingBottom = nestedScrollView.getPaddingBottom();
-
-        ViewCompat.setOnApplyWindowInsetsListener(nestedScrollView, (v, windowInsets) -> {
-            // Obtém os insets combinados das barras do sistema e dos display cutouts
-            Insets systemAndCutoutInsets = windowInsets.getInsets(
-                    WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout()
-            );
-
-            // Aplica os insets adicionando-os aos paddings originais da view
-            v.setPadding(
-                    initialPaddingLeft + systemAndCutoutInsets.left,
-                    initialPaddingTop + systemAndCutoutInsets.top,
-                    initialPaddingRight + systemAndCutoutInsets.right,
-                    initialPaddingBottom + systemAndCutoutInsets.bottom // Usa apenas systemAndCutoutInsets.bottom
-            );
-
-            // Consome os insets para evitar que as views filhas os apliquem novamente
-            return WindowInsetsCompat.CONSUMED;
-        });
-
-        ProgressDialog pg = Progress(this);
+         NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_content); // Dê um ID ao seu NestedScrollView em content_main2.xml
+         ajustarLayout(nestedScrollView);
+         ProgressDialog pg = Progress(this);
 
 
 
