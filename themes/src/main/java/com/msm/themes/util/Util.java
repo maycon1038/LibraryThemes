@@ -268,7 +268,7 @@ public class Util {
             return;
         }
 
-        MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(ctx);
+        MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(ctx).positiveText("OK");
 
         if (title != null && !title.isEmpty()) {
             dialogBuilder.title(title);
