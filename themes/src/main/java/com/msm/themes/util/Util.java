@@ -231,32 +231,24 @@ public class Util {
 
     public static void showAviso(Context ctx, Drawable icon, String title, String msm) {
 
-
         if (ctx == null) {
             // Logar um erro ou lançar uma exceção, pois o contexto é essencial
             Log.e("Util.showAviso", "O contexto não pode ser nulo");
             return;
         }
 
-        MaterialDialog dialogBuilder = new MaterialDialog(ctx, MaterialDialog.getDEFAULT_BEHAVIOR())
-                .positiveButton(android.R.string.ok, null, materialDialog -> {
-                    materialDialog.dismiss();
-                    return null; // Para a lambda em Java que retorna Unit em Kotlin, retornar null é comum.
-                    // Ou, se o lambda não precisar retornar nada (void), ajuste a assinatura do callback se possível.
-                    // No caso da lib do Afollestad, o callback para botões geralmente é (MaterialDialog) -> Unit,
-                    // então retornar null para simular Unit é o padrão em Java.
-                });
+        MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(ctx);
 
         if (title != null && !title.isEmpty()) {
-            dialogBuilder.title(null, title);
+            dialogBuilder.title(title);
         }
 
         if (msm != null && !msm.isEmpty()) {
-            dialogBuilder.message(null, msm, null);
+            dialogBuilder.content( msm);
         }
 
         if (icon != null) {
-            dialogBuilder.icon(null, icon);
+            dialogBuilder.icon(icon);
         }
 
         dialogBuilder.show();
